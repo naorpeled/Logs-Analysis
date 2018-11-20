@@ -4,7 +4,9 @@ _The code is written with Python v2.7 and it uses the PostgreSQL api_
 
 ## Functions
 *first_query()* - _The solution for the first query in the project_
+
 *second_query()* - _The solution for the second query in the project_
+
 *third_query()* - _The solution for the third query in the project_
   
 ## Views used in the project
