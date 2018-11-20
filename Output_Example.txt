@@ -1,0 +1,12 @@
+This app was built with Python-v2.7.12
+First query:
+candidate is jerk got 338647 views so far.
+bears love berries got 253801 views so far.
+bad things gone got 170098 views so far.
+Second Query:
+Ursula La Multa has 507594 views in total.
+Rudolf von Treppenwitz has 423457 views in total.
+Anonymous Contributor has 170098 views in total.
+Markoff Chaney has 84557 views in total.
+Third Query:
+2016-07-17 had 2.2626862468% errors.
