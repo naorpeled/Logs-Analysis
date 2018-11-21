@@ -1,13 +1,20 @@
+# !/usr/bin/env python
 # My code for the logs analysis project
 
 import psycopg2
 import platform
 
+# Trying to connect to the database
+# If the attempt fails an error is displayed
+try:
+    db = psycopg2.connect("dbname=news")
+except DataError:
+    print("Unable to connect to the database")
+
 
 # This query prints a sorted list of the amount of views that each article has
 def first_query():
     print('First query: ')
-    db = psycopg2.connect("dbname=news")
     cursor = db.cursor()
     cursor.execute(
                    'SELECT path, count(path) ' +
@@ -20,13 +27,11 @@ def first_query():
               " got " + str(row[1]) + " views so far.")
         row = cursor.fetchone()
     cursor.close()
-    db.close()
 
 
 # This query prints a sorted list of authors and their populariy
 # (amount of views on their articles)
 def second_query():
-    db = psycopg2.connect("dbname=news")
     cursor = db.cursor()
     print('Second Query: ')
     cursor.execute(
@@ -39,13 +44,11 @@ def second_query():
         print(row[0] + " has " + str(row[1]) + " views in total.")
         row = cursor.fetchone()
     cursor.close()
-    db.close()
 
 
 # This query calculates the percentage of how many errors were in each day
 # and prints the date of the days that had 1% or more
 def third_query():
-    db = psycopg2.connect("dbname=news")
     cursor = db.cursor()
     print("Third Query: ")
     cursor.execute(
@@ -64,7 +67,6 @@ def third_query():
             print(str(row[0]) + ' had ' + str(operation) + '% errors.')
         row = cursor.fetchone()
     cursor.close()
-    db.close()
 
 
 # Main - area of executing the functions defined above
@@ -72,3 +74,4 @@ print('This app was built with Python-v'+platform.python_version())
 first_query()
 second_query()
 third_query()
+db.close()
